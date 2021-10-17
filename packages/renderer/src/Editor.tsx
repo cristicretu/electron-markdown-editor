@@ -1,3 +1,4 @@
+
 import React, { useCallback, useEffect } from 'react'
 import useCodeMirror from './use-codemirror'
 import './editor.css'
@@ -11,20 +12,20 @@ const Editor: React.FC<Props> = (props) => {
   const { onChange, initialDoc } = props
   const handleChange = useCallback(
     state => onChange(state.doc.toString()),
-    [onChange])
+    [onChange]
+  )
   const [refContainer, editorView] = useCodeMirror<HTMLDivElement>({
     initialDoc: initialDoc,
-    onChange: handleChange,
+    onChange: handleChange
   })
-
 
   useEffect(() => {
     if (editorView) {
-      // placeholder for now
+      // Do nothing for now
     }
   }, [editorView])
 
-  return <div className='editor-wrapper' ref={refContainer}>Editor</div>
+  return <div className='editor-wrapper' ref={refContainer}></div>
 }
 
 export default Editor
